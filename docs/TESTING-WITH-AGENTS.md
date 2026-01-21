@@ -2,6 +2,8 @@
 
 Strategy for testing AI commands and skills using independent subagents.
 
+> **Research-validated approach.** See [RESEARCH-VALIDATION.md](./RESEARCH-VALIDATION.md) for comparison with Anthropic and industry best practices.
+
 ## Concept
 
 ```
@@ -53,16 +55,33 @@ Main agent defines tests as structured prompts:
 1. [Action to perform]
 2. [Action to perform]
 
-**Verification:**
-- [ ] [Condition to check]
-- [ ] [Condition to check]
+**Verification (Positive):**
+- [ ] [SHOULD happen/exist]
+- [ ] [SHOULD happen/exist]
 
-**Expected Output:**
-[What success looks like]
+**Verification (Negative):**
+- [ ] [Should NOT happen/exist]
+- [ ] [Should NOT happen/exist]
+
+**Reference Solution:**
+[Expected file contents or output - proves test is solvable]
+
+**Scoring:**
+- All checks pass: 100%
+- Positive checks pass, negative fail: 75%
+- Core functionality works: 50%
+- Partial progress: 25%
 
 **Report Format:**
 [How subagent should structure its response]
 ```
+
+### Key Principles (From Anthropic)
+
+1. **Grade outcomes, not paths** - Check what was produced, not the exact commands used
+2. **Include negative cases** - "One-sided evals create one-sided optimization"
+3. **Allow partial credit** - Represent the continuum of success
+4. **Reference solutions** - Prove the task is solvable and verify graders work
 
 ## Subagent Types for Testing
 
@@ -262,3 +281,66 @@ None
 | Use vague success criteria | Use specific, checkable conditions |
 | Run dependent tests in parallel | Run sequentially or use setup steps |
 | Ignore subagent errors | Require explicit error reporting |
+| Only test positive cases | Include negative cases (should NOT) |
+| Check exact command sequences | Grade outcomes, not paths |
+
+## CI/CD Integration
+
+### Test Categories (From Anthropic)
+
+| Type | Pass Rate | Purpose | When to Run |
+|------|-----------|---------|-------------|
+| **Capability** | Starts low (~20%) | Push boundaries, find limits | Development |
+| **Regression** | Must stay ~100% | Catch backsliding | Every PR/commit |
+
+Graduate capability tests to regression once they consistently pass.
+
+### GitHub Actions Example
+
+```yaml
+name: AI System Tests
+on: [push, pull_request]
+
+jobs:
+  test-boot-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Test boot script (fresh)
+        run: |
+          cd examples/my-project
+          rm -rf .ai-local/
+          .ai/session/scripts/boot.sh
+          test -f .ai-local/STATE.md
+          test -f .ai-local/CONTEXT.md
+
+      - name: Test boot script (idempotent)
+        run: |
+          cd examples/my-project
+          BEFORE=$(stat -c %Y .ai-local/STATE.md)
+          .ai/session/scripts/boot.sh
+          AFTER=$(stat -c %Y .ai-local/STATE.md)
+          test "$BEFORE" = "$AFTER"
+```
+
+### Monitoring Saturation
+
+When tests hit 100% consistently, they stop providing signal. Track:
+- When tests approach saturation
+- Add harder tests to maintain improvement visibility
+
+## Transcript Review
+
+Periodically review subagent transcripts to catch:
+- Grading bugs (marking wrong as right)
+- Overly brittle checks (rejecting valid approaches)
+- Ambiguous task specs
+
+Location: `~/.claude/projects/{project}/{session}/subagents/`
+
+## References
+
+- [Anthropic: Demystifying Evals for AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)
+- [Claude Code: Custom Subagents](https://code.claude.com/docs/en/sub-agents)
+- [LangChain: State of AI Agents](https://www.langchain.com/state-of-agent-engineering)
