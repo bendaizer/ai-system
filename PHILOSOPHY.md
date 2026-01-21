@@ -110,3 +110,105 @@ A developer should be able to:
 No signup. No API keys. No installation. No configuration wizard. No "please upgrade to Pro for this feature."
 
 Just files.
+
+---
+
+## Declarative Over Imperative
+
+Beyond minimalism, this system embraces declarative control.
+
+### Two Ways to Control Work
+
+| Approach | Control Via | Example |
+|----------|-------------|---------|
+| **Imperative** | Procedures (steps) | "Run this command, then that command, then check this" |
+| **Declarative** | Constraints (goals) | "The system should have these properties" |
+
+We choose declarative.
+
+### Why Declarative?
+
+**Imperative instructions are fragile:**
+```
+1. Open the config file
+2. Find the line with "timeout"
+3. Change the value to 30
+4. Save and close
+```
+
+If the file format changes, the instructions break.
+
+**Declarative specifications are robust:**
+```
+timeout: 30
+```
+
+The "how" can change. The "what" remains stable.
+
+### Applied to AI Assistance
+
+When working with AI, you have a choice:
+
+**Imperative prompting:**
+> "First read the file, then find all functions, then check each one for..."
+
+**Declarative prompting:**
+> "Ensure all functions have error handling. Report violations."
+
+The declarative version:
+- Survives model changes
+- Works across different AI tools
+- Focuses on outcomes, not paths
+- Is easier to verify
+
+### The Three Layers
+
+Any robust system has three layers:
+
+```
+┌─────────────────────────────────────┐
+│  SPECIFICATION (What/Why)           │
+│  Goals, constraints, acceptance     │
+│  criteria, definitions of done      │
+├─────────────────────────────────────┤
+│  EXECUTION (How)                    │
+│  AI, scripts, humans, compilers     │
+│  — high variance, replaceable —     │
+├─────────────────────────────────────┤
+│  EVIDENCE (Proof)                   │
+│  Tests, verification, state files   │
+│  diffs, reproducible outcomes       │
+└─────────────────────────────────────┘
+```
+
+**Key insight:** When execution has high freedom (AI can do anything), you need strong specification and strong evidence.
+
+### This System's Layers
+
+| Layer | Implementation |
+|-------|----------------|
+| Specification | Skill definitions in `.ai/skills/` |
+| Execution | AI reads specs, runs scripts, does work |
+| Evidence | State files, git commits, test reports |
+
+The AI is the high-variance middle layer. The markdown files above and below it are the control.
+
+### Vibe Coding vs Engineering
+
+**Vibe coding:**
+- Iterate until it "looks right"
+- Weak acceptance criteria
+- Hope it works
+
+**Engineering:**
+- Explicit contracts (what must be true)
+- Verification (prove it's true)
+- Reproducibility (prove it again tomorrow)
+
+This system enables engineering by making specification and evidence first-class citizens—as files you can read, diff, and version.
+
+### The Rule
+
+> If you cannot point to a file that defines success, you're vibing.
+
+Every skill has a definition. Every session has state. Every change has a commit. That's the contract.
