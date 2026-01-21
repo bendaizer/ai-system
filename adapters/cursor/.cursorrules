@@ -1,0 +1,34 @@
+# AI System Rules
+
+This project uses a unified AI system for session management.
+
+## Entry Points
+
+- Universal: `AGENTS.md`
+- Definitions: `.ai/`
+- Local state: `.ai-local/` (gitignored)
+
+## Commands
+
+### boot
+Start session, load context from memory layers.
+Run: `.ai/session/scripts/boot.sh`
+Then read: `.ai-local/CONTEXT.md`
+
+### save
+Save session state, propose commit.
+Run: `.ai/session/scripts/save.sh`
+Then update: `.ai-local/STATE.md` and `.ai-local/HISTORY.md`
+
+## Memory Layers
+
+- L0: Current chat
+- L1: `.ai-local/STATE.md` (~3 sessions)
+- L2: `.ai-local/HISTORY.md` (all sessions)
+- L3: Git commits (forever)
+
+## Documentation
+
+- `.ai/README.md` - System overview
+- `.ai/session/README.md` - Memory concepts
+- `.ai/skills/` - Skill definitions

@@ -1,0 +1,2 @@
+# AI local state (session-specific, not shared)
+.ai-local/
