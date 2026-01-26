@@ -1,0 +1,7 @@
+# AI local state (session-specific, not committed)
+.ai-local/
+
+# OS files
+.DS_Store
+Thumbs.db
+*Zone.Identifier
