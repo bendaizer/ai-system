@@ -116,6 +116,19 @@ The session system uses 4 memory layers:
 
 See `TESTING.md` for test scenarios to validate the system works with each tool.
 
+## Documentation
+
+| Document | Purpose |
+|----------|---------|
+| `PHILOSOPHY.md` | Radical minimalism, declarative over imperative |
+| `AGENTS.md` | Universal entry point for AI assistants |
+| `TESTING.md` | Test scenarios for each tool |
+| `docs/TESTING-WITH-AGENTS.md` | Agent-based testing strategy with subagents |
+| `docs/RESEARCH-VALIDATION.md` | Comparison with industry best practices |
+| `docs/PROJECT-TAXONOMY.md` | Project naming, directory conventions, types |
+| `docs/META-COORDINATION.md` | Multi-project tracking, aggregation, streams |
+| `docs/PM-INTEGRATION.md` | Syncing AI state with PM tools (Notion, Linear, Jira, GitHub) |
+
 ## License
 
 MIT
