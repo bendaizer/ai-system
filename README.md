@@ -127,6 +127,7 @@ See `TESTING.md` for test scenarios to validate the system works with each tool.
 | `docs/RESEARCH-VALIDATION.md` | Comparison with industry best practices |
 | `docs/PROJECT-TAXONOMY.md` | Project naming, directory conventions, types |
 | `docs/META-COORDINATION.md` | Multi-project tracking, aggregation, streams |
+| `docs/RETRIEVAL-STRATEGIES.md` | Navigation-based retrieval, token budgets, save-time triggers, anti-patterns |
 | `docs/PM-INTEGRATION.md` | Syncing AI state with PM tools (Notion, Linear, Jira, GitHub) |
 
 ## License
