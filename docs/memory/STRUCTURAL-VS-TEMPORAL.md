@@ -37,14 +37,7 @@ Typical cases:
 
 ## Grey zones
 
-Some info is **semi-structural**: its *shape* is stable but its *content* evolves.
-
-| Info | Tension | Convention |
-|---|---|---|
-| List of active handoffs (names) | Workstream structure stable · state volatile | Names + categories → structural; statuses + ages → temporal |
-| Active machine in multi-machine setups | Infra structural · current session temporal | Machine list → structural; session's machine → temporal (STATE.md) |
-| Available skills | Stable but depends on installed plugins | Auto-injected by the tool harness; don't duplicate |
-| Staleness thresholds | Structural but referenced in temporal warnings | Config file referenced from both sides |
+Some info is **semi-structural**: its *shape* is stable but its *content* evolves. When you hit one, split it: put the stable shape (names, categories, file paths) in the structural layer, put the volatile content (statuses, dates, counts) in the temporal layer.
 
 General rule: **names/structure** → structural layer; **state/dates/counts** → temporal layer.
 
@@ -80,14 +73,13 @@ Putting "objective of the week" in `AGENTS.md`.
 
 ### AP3 — Duplicate structural × N
 
-Having `SEED.md` + `AGENTS.md` + a `README.md` that all describe the same architecture.
+Having multiple files (e.g. `AGENTS.md` + `ARCHITECTURE.md` + a long `README.md`) that all describe the same architecture from different angles.
 
-**Symptom**: every structural change requires updating 3 places. Guaranteed drift.
+**Symptom**: every structural change requires updating N places. Guaranteed drift.
 
-**Fix**: 1 source of truth (`AGENTS.md`), others point to it.
+**Fix**: pick one source of truth, the others point to it (or shrink them to navigation aids that don't repeat the substance).
 
 ## Related
 
 - [`MEMORY-SYSTEM.md`](MEMORY-SYSTEM.md) — The L0-L3 model (temporal axis specs)
 - [`STATE-OWNERSHIP.md`](STATE-OWNERSHIP.md) — Five state systems and their ownership rules
-- `../EXTENDING-BOOT-SAVE.md` — How production boot/save scripts implement the temporal layer
