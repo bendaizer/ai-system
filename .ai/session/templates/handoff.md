@@ -2,6 +2,18 @@
 
 > Created: YYYY-MM-DD · Stream: <name> · Status: Active
 
+<!--
+This is a RICH example handoff with all the sections you might want.
+
+Minimum viable handoff = just three things:
+  1. Status (active / deferred / closed)
+  2. Where we are (2-4 sentences)
+  3. Next step (one concrete instruction)
+
+Pick the shape that fits your team. The framework doesn't force a schema —
+see docs/handoffs/HANDOFF-SYSTEM.md "Handoff file format" for the rationale.
+-->
+
 ## Context
 
 Why this work exists. What problem it solves. 2-3 paragraphs max — enough that someone re-entering cold (3 days later, or a different agent) understands the *why* without reading other files.

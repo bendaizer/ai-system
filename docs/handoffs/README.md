@@ -24,4 +24,3 @@ How to carry context across sessions when multiple workstreams compete for STATE
 
 - Templates: [`../../.ai/session/templates/`](../../.ai/session/templates/)
 - Memory model: [`../memory/`](../memory/)
-- Boot/save extension: [`../EXTENDING-BOOT-SAVE.md`](../EXTENDING-BOOT-SAVE.md)

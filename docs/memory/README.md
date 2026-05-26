@@ -70,5 +70,4 @@ Plus a fifth dimension: **structural vs temporal**. Some context is stable (arch
 ## Related
 
 - `../../.ai/session/README.md` — Concise session management entry point in the framework code.
-- `../../.ai/session/scripts/boot.sh` and `save.sh` — Reference implementations (stubs; see `../EXTENDING-BOOT-SAVE.md` for production patterns).
-- `../EXTENDING-BOOT-SAVE.md` — How real-world projects extend the stubs (machine-aware boot, coherence audits, project registries, etc.).
+- `../../.ai/session/scripts/boot.sh` and `save.sh` — Reference implementations (stubs that demonstrate the L0-L3 cycle).
