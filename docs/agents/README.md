@@ -56,4 +56,5 @@ Pick the smallest version of the system that solves your current pain:
 - [`../memory/`](../memory/README.md) — State systems and ownership (agent registry is one of them)
 - [`../handoffs/`](../handoffs/README.md) — Cross-session continuation (complements within-session multi-agent coordination)
 - [`../skills/`](../skills/README.md) — Skill definitions some of which orchestrate sub-agents
+- [`../navigation/`](../navigation/README.md) — Proximity-based navigation pattern (per-folder READMEs)
 - [`../TESTING-WITH-AGENTS.md`](../TESTING-WITH-AGENTS.md) — Testing patterns using sub-agents (separate concern from this folder, but uses similar primitives)

@@ -82,6 +82,7 @@ docs/                        # Patterns + deep-dive documentation
 ├── agents/                  # Multi-agent coordination
 ├── handoffs/                # Cross-session continuation pattern
 ├── skills/                  # Skills index + per-skill supporting docs
+├── navigation/              # Proximity-based nav + graph integrity checks
 ├── RESEARCH-VALIDATION.md
 └── TESTING-WITH-AGENTS.md
 
@@ -126,6 +127,7 @@ The `docs/` folder contains pattern specs and deep-dives that complement the sou
 | [`docs/agents/`](docs/agents/README.md) | Multi-agent coordination: safety rules, file-locked registry, inter-process communication, coherence audit workflow |
 | [`docs/handoffs/`](docs/handoffs/README.md) | Cross-session continuation pattern (router + per-workstream handoff files) |
 | [`docs/skills/`](docs/skills/README.md) | Skills index and how to add new skills |
+| [`docs/navigation/`](docs/navigation/README.md) | Proximity-based navigation (per-folder READMEs) + graph integrity checks |
 | [`docs/RESEARCH-VALIDATION.md`](docs/RESEARCH-VALIDATION.md) | Alignment with published research on agent memory + testing |
 | [`docs/TESTING-WITH-AGENTS.md`](docs/TESTING-WITH-AGENTS.md) | Sub-agent orchestration patterns for test workflows |
 

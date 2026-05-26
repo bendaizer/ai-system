@@ -12,6 +12,7 @@ Read these when you want to **extend** the framework, **understand the rationale
 | [`agents/`](agents/README.md) | Multi-agent coordination: safety rules, file-locked registry, inter-process communication, coherence audit workflow |
 | [`handoffs/`](handoffs/README.md) | Cross-session continuation: a router file + per-workstream handoff files for multi-stream workspaces |
 | [`skills/`](skills/README.md) | Skills index + how to add a new skill |
+| [`navigation/`](navigation/README.md) | Per-folder README pattern (proximity-based navigation) + automated graph integrity checks |
 
 ## Standalone docs
 

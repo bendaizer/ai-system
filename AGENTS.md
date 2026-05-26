@@ -68,8 +68,9 @@ Patterns + deep-dives (read when extending the framework):
 - `docs/agents/` - Multi-agent coordination (safety, registry, communication, coherence audit)
 - `docs/handoffs/` - Cross-session continuation pattern
 - `docs/skills/` - Skills index + how to add new skills
+- `docs/navigation/` - Proximity-based navigation pattern + graph integrity checks
 
-Navigate by hopping from README to README. Each folder's README links to its children, parent, and lateral siblings.
+Navigate by hopping from README to README. Each folder's README links to its children, parent, and lateral siblings. See `docs/navigation/` for the pattern.
 
 ## Tool-Specific Setup
 

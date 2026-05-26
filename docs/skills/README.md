@@ -25,4 +25,5 @@ Keep skills **tool-agnostic where possible** and **focused** (one skill per conc
 - [`../memory/`](../memory/README.md) — Memory layers that skills read from and write to
 - [`../agents/`](../agents/README.md) — Multi-agent coordination (sub-agents are often invoked from inside a skill)
 - [`../handoffs/`](../handoffs/README.md) — Where skills document their iteration notes
+- [`../navigation/`](../navigation/README.md) — Proximity-based navigation pattern (per-folder READMEs)
 - `../../.ai/skills/` — The actual skill definition files (markdown front-matter + procedure)
