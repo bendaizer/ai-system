@@ -69,5 +69,9 @@ Plus a fifth dimension: **structural vs temporal**. Some context is stable (arch
 
 ## Related
 
-- `../../.ai/session/README.md` — Concise session management entry point in the framework code.
-- `../../.ai/session/scripts/boot.sh` and `save.sh` — Reference implementations (stubs that demonstrate the L0-L3 cycle).
+- [`../README.md`](../README.md) — Documentation hub (parent)
+- [`../agents/`](../agents/README.md) — Multi-agent coordination (state ownership intersects with the agent registry)
+- [`../handoffs/`](../handoffs/README.md) — Cross-session continuation (complements the L1 STATE.md when workstreams multiply)
+- [`../skills/`](../skills/README.md) — Skill definitions that read and write these memory layers
+- `../../.ai/session/README.md` — Concise session-management entry point in the framework code
+- `../../.ai/session/scripts/boot.sh` and `save.sh` — Reference implementations (stubs that demonstrate the L0-L3 cycle)

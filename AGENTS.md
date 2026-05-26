@@ -56,10 +56,20 @@ Persist current session state to memory layers.
 
 ## Documentation
 
+Source of truth (operational):
 - `.ai/README.md` - System overview
 - `.ai/session/README.md` - Memory layer concepts
-- `.ai/skills/` - Detailed skill definitions
+- `.ai/skills/` - Detailed skill definitions (boot, save, iterate-html, …)
 - `.ai/agents/` - Agent definitions
+
+Patterns + deep-dives (read when extending the framework):
+- `docs/README.md` - Documentation hub
+- `docs/memory/` - Full L0-L3 memory model, rotation, state ownership, structural vs temporal
+- `docs/agents/` - Multi-agent coordination (safety, registry, communication, coherence audit)
+- `docs/handoffs/` - Cross-session continuation pattern
+- `docs/skills/` - Skills index + how to add new skills
+
+Navigate by hopping from README to README. Each folder's README links to its children, parent, and lateral siblings.
 
 ## Tool-Specific Setup
 

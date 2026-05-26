@@ -52,6 +52,8 @@ Pick the smallest version of the system that solves your current pain:
 
 ## Related
 
-- [`../memory/STATE-OWNERSHIP.md`](../memory/STATE-OWNERSHIP.md) — Ownership matrix between state systems (agent registry is one of them)
-- [`../handoffs/HANDOFF-SYSTEM.md`](../handoffs/HANDOFF-SYSTEM.md) — Cross-session continuation (complements multi-agent within-session coordination)
+- [`../README.md`](../README.md) — Documentation hub (parent)
+- [`../memory/`](../memory/README.md) — State systems and ownership (agent registry is one of them)
+- [`../handoffs/`](../handoffs/README.md) — Cross-session continuation (complements within-session multi-agent coordination)
+- [`../skills/`](../skills/README.md) — Skill definitions some of which orchestrate sub-agents
 - [`../TESTING-WITH-AGENTS.md`](../TESTING-WITH-AGENTS.md) — Testing patterns using sub-agents (separate concern from this folder, but uses similar primitives)

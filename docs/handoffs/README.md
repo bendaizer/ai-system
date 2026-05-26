@@ -22,5 +22,8 @@ How to carry context across sessions when multiple workstreams compete for STATE
 
 ## Related
 
-- Templates: [`../../.ai/session/templates/`](../../.ai/session/templates/)
-- Memory model: [`../memory/`](../memory/)
+- [`../README.md`](../README.md) — Documentation hub (parent)
+- [`../memory/`](../memory/README.md) — L0-L3 memory model (handoffs complement STATE.md when streams multiply)
+- [`../agents/`](../agents/README.md) — Multi-agent coordination (handoffs cover cross-session, agents cover within-session)
+- [`../skills/`](../skills/README.md) — Skill definitions including `iterate-html` and others
+- Templates: [`../../.ai/session/templates/`](../../.ai/session/templates/) — SESSION-HANDOFF.md router + handoff.md per-workstream
