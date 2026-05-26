@@ -72,45 +72,29 @@ Three sections:
 
 ## Handoff file format
 
-A single handoff lives in `.ai-local/handoffs/<YYYY-MM-DD>-<slug>.md`. Suggested structure (adapt to your needs):
+A single handoff lives in `.ai-local/handoffs/<YYYY-MM-DD>-<slug>.md`. The framework doesn't impose a fixed schema — pick a shape that fits how you actually resume work.
+
+**Minimum viable handoff** (what most teams end up needing):
 
 ```markdown
 # Handoff: <topic>
 
-> Created: 2026-05-20 · Stream: <name> · Status: Active
+**Status**: <active | deferred | closed>
 
-## Context
+## Where we are
+<2-4 sentences: what's done, what's not>
 
-Why this work exists. What problem it solves. 2-3 paragraphs max.
-
-## Recent work (this handoff's sessions)
-
-- Bullet list of what was done across the sessions that touched this handoff.
-- Decisions made and their rationale.
-- Files created/modified (with paths).
-
-## Open loops
-
-- [ ] Things started but not finished
-- [ ] Questions waiting for answers
-- [ ] Decisions pending (with context for whoever picks this up)
-
-## Key decisions
-
-| Decision | Choice | Rationale | Date |
-|---|---|---|---|
-
-## Files
-
-- `path/to/file.ext` — what it does, what changed
-- `path/to/other.ext` — ...
-
-## Next session
-
-The exact first step. Not "continue work on X" but "implement the validation function in src/auth/validate.ts following the schema in lib/types/auth.ts:42".
+## Next step
+<one concrete instruction — file path, function name, exact action>
 ```
 
-Keep handoffs **conversational and concrete**. They're notes you write to the next agent (which might be you in 3 days, or someone else, or both). Optimize for someone re-entering cold.
+That's it. If three sentences and a next-step pointer get you re-entering cold, you don't need more.
+
+**Richer handoff** (when the workstream has more context to carry):
+
+Add sections as needed — common ones include `Context` (why this work exists), `Open loops` (parallel threads), `Key decisions` (with rationale), `Files` (what changed in this stream). Pick what your team will actually re-read; skip what nobody opens.
+
+Whatever shape you choose, keep handoffs **conversational and concrete**. They're notes you write to the next agent (which might be you in 3 days, or someone else, or both). Optimize for someone re-entering cold.
 
 ## Lifecycle
 
@@ -148,14 +132,16 @@ Stays in `.ai-local/handoffs/` (not archived). Router shows it in the Deferred t
 
 ## Boot integration
 
-The boot script (see [`../EXTENDING-BOOT-SAVE.md`](../EXTENDING-BOOT-SAVE.md) axis 6) parses the router and renders the Active + Deferred tables in `CONTEXT.md`. Two modes:
+If your boot script wires this in, two modes are useful:
 
-- `boot` (no argument): show the router index. Agent picks one if needed.
-- `boot <slug>`: inline the full content of `.ai-local/handoffs/<slug>.md` into `CONTEXT.md`, so the agent resumes with full context immediately.
+- `boot` (no argument): parse `SESSION-HANDOFF.md` and render the Active + Deferred tables in `CONTEXT.md`. The agent sees the menu of workstreams.
+- `boot <slug>`: same as above, plus inline the full content of `.ai-local/handoffs/<slug>.md` into `CONTEXT.md`, so the agent resumes with full context for that specific stream.
+
+Both modes are opt-in — the handoff system also works as pure documentation without any boot wiring.
 
 ## Save integration
 
-At `/save`, the save script (see [`../EXTENDING-BOOT-SAVE.md`](../EXTENDING-BOOT-SAVE.md) axis 8) prompts the user to:
+If you wire save hygiene into your `/save` script, the prompts most worth surfacing are:
 
 1. Update the relevant handoff(s) with this session's work
 2. Update the router status line for each touched handoff
@@ -208,5 +194,4 @@ STATE.md is the **session lens**: snapshot of what just happened. Handoffs are t
 
 - [`../memory/MEMORY-SYSTEM.md`](../memory/MEMORY-SYSTEM.md) — L0-L3 memory model (handoffs are a complement, not a replacement)
 - [`../memory/STATE-OWNERSHIP.md`](../memory/STATE-OWNERSHIP.md) — Where handoffs sit in the 5-system ownership matrix
-- [`../EXTENDING-BOOT-SAVE.md`](../EXTENDING-BOOT-SAVE.md) — How boot/save scripts integrate the router (axes 6 and 8)
 - [`../agents/COHERENCE-AUDIT-WORKFLOW.md`](../agents/COHERENCE-AUDIT-WORKFLOW.md) — Phase 4 audits stale handoffs
